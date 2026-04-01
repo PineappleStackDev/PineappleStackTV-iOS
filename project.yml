@@ -1,0 +1,88 @@
+name: DispatcharrTV
+options:
+  bundleIdPrefix: com.dispatcharr
+  deploymentTarget:
+    tvOS: "17.0"
+    iOS: "17.0"
+  xcodeVersion: "16.0"
+settings:
+  DEVELOPMENT_TEAM: EWURMBNL47
+targets:
+  DispatcharrTV:
+    type: application
+    platform: tvOS
+    settings:
+      CURRENT_PROJECT_VERSION: 35
+      MARKETING_VERSION: "1.0.0"
+    sources:
+      - path: .
+        excludes:
+          - project.yml
+          - "*.xcodeproj"
+          - Info.plist
+          - Info-iOS.plist
+          - fastlane
+          - private
+          - Gemfile*
+          - Podfile*
+          - Pods
+          - "*.xcframework"
+          - build
+    dependencies:
+      - framework: VLCKit.xcframework
+        embed: true
+    info:
+      path: Info.plist
+      properties:
+        CFBundleVersion: "35"
+        CFBundleShortVersionString: "1.0.0"
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+        UILaunchScreen: {}
+        CFBundleIcons:
+          CFBundlePrimaryIcon: App Icon
+        TVTopShelfImage:
+          TVTopShelfPrimaryImage: Top Shelf Image
+          TVTopShelfPrimaryImageWide: Top Shelf Image Wide
+    settings:
+      ASSETCATALOG_COMPILER_APPICON_NAME: App Icon
+      ASSETCATALOG_COMPILER_TOP_SHELF_IMAGE_NAME: Top Shelf Image
+      ASSETCATALOG_COMPILER_LAUNCH_STORYBOARD_NAME: ""
+  DispatcharrTV-iOS:
+    type: application
+    platform: iOS
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.dispatcharr.DispatcharrTV
+      TARGETED_DEVICE_FAMILY: "1,2"
+      INFOPLIST_KEY_UILaunchScreen_Generation: true
+      INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+      INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+      CURRENT_PROJECT_VERSION: 35
+      MARKETING_VERSION: "1.0.0"
+      GENERATE_INFOPLIST_FILE: YES
+    sources:
+      - path: .
+        excludes:
+          - project.yml
+          - "*.xcodeproj"
+          - Info.plist
+          - Info-iOS.plist
+          - fastlane
+          - private
+          - Gemfile*
+          - Podfile*
+          - Pods
+          - "*.xcframework"
+          - build
+    dependencies:
+      - framework: VLCKit.xcframework
+        embed: true
+    info:
+      path: Info-iOS.plist
+      properties:
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+        UILaunchScreen: {}
+        UIBackgroundModes:
+          - audio
+          - fetch

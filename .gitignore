@@ -1,0 +1,27 @@
+# Xcode
+build/
+DerivedData/
+*.xcworkspace
+*.xcodeproj/xcuserdata/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+
+# Private keys and signing
+private/
+*.p8
+*.p12
+*.mobileprovision
+*.provisionprofile
+
+# Dependencies
+Pods/
+Carthage/
+
+# OS
+.DS_Store
+*.swp
+VLCKit.xcframework/
+*.xcframework/

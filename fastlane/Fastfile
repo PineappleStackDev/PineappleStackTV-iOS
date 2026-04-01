@@ -1,0 +1,19 @@
+default_platform(:ios)
+
+platform :ios do
+  before_all do
+    @api_key = app_store_connect_api_key(
+      key_id: "NN8G28CFYV",
+      issuer_id: "485c76d7-9559-4ee6-b7e5-59cdf31ffa70",
+      key_filepath: File.expand_path("../private/AuthKey_NN8G28CFYV.p8", __dir__),
+      duration: 1200,
+      in_house: false
+    )
+  end
+
+  desc "Create tvOS provisioning profile"
+  lane :tvos_signing do
+    cert(api_key: @api_key, platform: "tvos")
+    sigh(api_key: @api_key, app_identifier: "com.dispatcharr.DispatcharrTV", platform: "tvos")
+  end
+end
