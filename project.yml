@@ -6,7 +6,7 @@ options:
     iOS: "17.0"
   xcodeVersion: "16.0"
 settings:
-  DEVELOPMENT_TEAM: EWURMBNL47
+  DEVELOPMENT_TEAM: YOUR_TEAM_ID
 targets:
   PineappleStackTV:
     type: application

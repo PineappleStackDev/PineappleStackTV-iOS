@@ -2,26 +2,36 @@
 build/
 DerivedData/
 *.xcworkspace
-*.xcodeproj/xcuserdata/
+*.xcodeproj/
 *.pbxuser
 *.mode1v3
 *.mode2v3
 *.perspectivev3
 xcuserdata/
 
-# Private keys and signing
+# Signing and certificates
 private/
 *.p8
 *.p12
+*.cer
+*.certSigningRequest
 *.mobileprovision
 *.provisionprofile
+ExportOptions*.plist
+
+# Fastlane (contains API keys)
+fastlane/
 
 # Dependencies
 Pods/
 Carthage/
+VLCKit.xcframework/
+*.xcframework/
 
 # OS
 .DS_Store
 *.swp
-VLCKit.xcframework/
-*.xcframework/
+
+# Claude
+.claude/
+CLAUDE.md
