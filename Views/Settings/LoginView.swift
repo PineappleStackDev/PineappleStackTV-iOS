@@ -8,17 +8,17 @@ struct LoginView: View {
             Spacer()
 
             // App logo
-            Image("DispatcharrLogo")
+            Image("PineappleStackLogo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 120, height: 120)
                 .clipShape(RoundedRectangle(cornerRadius: 24))
 
-            Text("Dispatcharr TV")
+            Text("PineappleStack TV")
                 .font(.largeTitle)
                 .fontWeight(.bold)
 
-            Text("Connect to your Dispatcharr server")
+            Text("Connect to your PineappleStack server")
                 .font(.headline)
                 .foregroundStyle(.secondary)
 

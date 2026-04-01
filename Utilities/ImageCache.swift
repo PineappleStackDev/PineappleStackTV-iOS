@@ -1,7 +1,7 @@
 import SwiftUI
 import os
 
-private let logger = Logger(subsystem: "com.dispatcharr.DispatcharrTV", category: "ImageCache")
+private let logger = Logger(subsystem: "com.pineapplestack.tv", category: "ImageCache")
 
 /// Simple disk + memory image cache for channel logos
 final class ImageCache {

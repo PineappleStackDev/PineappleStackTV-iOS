@@ -7,7 +7,7 @@ enum Constants {
     static let guideHoursAhead = 24
     static let guideHoursBehind = 1
     static let guideSlotMinutes = 30
-    static let keychainService = "com.dispatcharrtv"
+    static let keychainService = "com.pineapplestacktv"
     static let keychainServerURL = "serverURL"
     static let keychainAccessToken = "accessToken"
     static let keychainRefreshToken = "refreshToken"

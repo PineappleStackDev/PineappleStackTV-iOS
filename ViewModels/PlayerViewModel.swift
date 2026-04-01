@@ -4,7 +4,7 @@ import Combine
 import MediaPlayer
 import os
 
-private let logger = Logger(subsystem: "com.dispatcharr.DispatcharrTV", category: "Player")
+private let logger = Logger(subsystem: "com.pineapplestack.tv", category: "Player")
 
 enum PlayerBackend {
     case avPlayer
@@ -59,7 +59,7 @@ final class PlayerViewModel: ObservableObject {
             logger.info("Trying AVPlayer with HLS: \(hlsURL.absoluteString.prefix(60))")
             await playWithAVPlayer(url: hlsURL, channel: channel)
         } else {
-            // Fall back to VLC with Dispatcharr TS proxy
+            // Fall back to VLC with PineappleStack TS proxy
             logger.info("No HLS URL, falling back to VLC")
             await playWithVLC(channel: channel)
         }
@@ -126,7 +126,7 @@ final class PlayerViewModel: ObservableObject {
         let endTime = Calendar.current.date(byAdding: .hour, value: 2, to: now)!
 
         do {
-            _ = try await DispatcharrAPI.createRecording(
+            _ = try await PineappleStackAPI.createRecording(
                 channelId: channel.id,
                 startTime: now,
                 endTime: endTime,
@@ -163,7 +163,7 @@ final class PlayerViewModel: ObservableObject {
     private func getHLSURL(for channel: Channel) async -> URL? {
         guard let streamId = channel.streams?.first else { return nil }
         do {
-            let sourceURL = try await DispatcharrAPI.getStreamURL(streamId: streamId)
+            let sourceURL = try await PineappleStackAPI.getStreamURL(streamId: streamId)
             // Convert source .ts to .m3u8 for HLS
             let hlsSourceURL: String
             if sourceURL.hasSuffix(".ts") {
@@ -172,9 +172,9 @@ final class PlayerViewModel: ObservableObject {
                 hlsSourceURL = sourceURL
             }
 
-            // Initialize the Dispatcharr HLS proxy for this channel
+            // Initialize the PineappleStack HLS proxy for this channel
             let channelId = String(channel.id)
-            try await DispatcharrAPI.initializeHLSStream(channelId: channel.id, streamURL: hlsSourceURL)
+            try await PineappleStackAPI.initializeHLSStream(channelId: channel.id, streamURL: hlsSourceURL)
             logger.info("Initialized HLS proxy for channel \(channel.name)")
 
             // Return the proxy's stream URL
@@ -195,7 +195,7 @@ final class PlayerViewModel: ObservableObject {
     private func getDirectHLSURL(for channel: Channel) async -> URL? {
         guard let streamId = channel.streams?.first else { return nil }
         do {
-            let sourceURL = try await DispatcharrAPI.getStreamURL(streamId: streamId)
+            let sourceURL = try await PineappleStackAPI.getStreamURL(streamId: streamId)
             let hlsURLString: String
             if sourceURL.hasSuffix(".ts") {
                 hlsURLString = String(sourceURL.dropLast(3)) + ".m3u8"

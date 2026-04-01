@@ -2,7 +2,7 @@ import SwiftUI
 import AVFoundation
 
 @main
-struct DispatcharrTVApp: App {
+struct PineappleStackTVApp: App {
     init() {
         // Enable AirPlay video and background audio
         #if !os(tvOS)

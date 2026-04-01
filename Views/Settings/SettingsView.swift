@@ -19,7 +19,7 @@ struct SettingsView: View {
                 Section {
                     HStack {
                         Spacer()
-                        Image("DispatcharrLogo")
+                        Image("PineappleStackLogo")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 80, height: 80)
@@ -71,7 +71,7 @@ struct SettingsView: View {
                 }
 
                 Section("About") {
-                    LabeledContent("App", value: "Dispatcharr TV")
+                    LabeledContent("App", value: "PineappleStack TV")
                     LabeledContent("Version", value: appVersion)
                 }
             }

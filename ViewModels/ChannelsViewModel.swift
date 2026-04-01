@@ -1,7 +1,7 @@
 import Foundation
 import os
 
-private let logger = Logger(subsystem: "com.dispatcharr.DispatcharrTV", category: "ChannelsVM")
+private let logger = Logger(subsystem: "com.pineapplestack.tv", category: "ChannelsVM")
 
 @MainActor
 final class ChannelsViewModel: ObservableObject {
@@ -72,9 +72,9 @@ final class ChannelsViewModel: ObservableObject {
         errorMessage = nil
 
         do {
-            async let channelsTask = DispatcharrAPI.getChannels()
-            async let groupsTask = DispatcharrAPI.getChannelGroups()
-            async let logosTask = DispatcharrAPI.getLogos()
+            async let channelsTask = PineappleStackAPI.getChannels()
+            async let groupsTask = PineappleStackAPI.getChannelGroups()
+            async let logosTask = PineappleStackAPI.getLogos()
 
             let (fetchedChannels, fetchedGroups, fetchedLogos) = try await (
                 channelsTask, groupsTask, logosTask
@@ -99,7 +99,7 @@ final class ChannelsViewModel: ObservableObject {
     func loadCurrentPrograms() async {
         do {
             let uuids = channels.compactMap { $0.uuid }
-            let programs = try await DispatcharrAPI.getCurrentPrograms(channelUUIDs: uuids)
+            let programs = try await PineappleStackAPI.getCurrentPrograms(channelUUIDs: uuids)
             var programMap: [String: Program] = [:]
             for program in programs {
                 if let tvgId = program.tvgId {

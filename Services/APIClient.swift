@@ -1,7 +1,7 @@
 import Foundation
 import os
 
-private let logger = Logger(subsystem: "com.dispatcharr.DispatcharrTV", category: "API")
+private let logger = Logger(subsystem: "com.pineapplestack.tv", category: "API")
 
 actor APIClient {
     static let shared = APIClient()

@@ -1,8 +1,8 @@
-# DispatcharrTV (iOS/tvOS)
+# PineappleStackTV (iOS/tvOS)
 
-Native Apple TV and iPhone client for [Dispatcharr](https://github.com/Dispatcharr/Dispatcharr).
+Native Apple TV and iPhone client for [PineappleStack](https://github.com/PineappleStackDev/Dispatcharr).
 
-Stream live TV, DVR recordings, and browse the EPG guide from your self-hosted Dispatcharr server.
+Stream live TV, DVR recordings, and browse the EPG guide from your self-hosted PineappleStack server.
 
 ## Features
 - Live TV with channel grid, logos, and current program info
@@ -14,7 +14,7 @@ Stream live TV, DVR recordings, and browse the EPG guide from your self-hosted D
 - AirPlay and Picture-in-Picture support
 
 ## Requirements
-- A self-hosted Dispatcharr server with the [HLS proxy changes](https://github.com/PineappleStackDev/Dispatcharr)
+- A self-hosted PineappleStack server with the [HLS proxy changes](https://github.com/PineappleStackDev/Dispatcharr)
 - iOS 17+ or tvOS 17+
 
 ## Status

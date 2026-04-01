@@ -10,8 +10,8 @@
     <true/>
     <key>provisioningProfiles</key>
     <dict>
-        <key>com.dispatcharr.DispatcharrTV</key>
-        <string>com.dispatcharr.DispatcharrTV AppStore</string>
+        <key>com.pineapplestack.tv</key>
+        <string>com.pineapplestack.tv AppStore</string>
     </dict>
 </dict>
 </plist>

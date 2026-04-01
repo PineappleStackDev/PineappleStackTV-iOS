@@ -2,7 +2,7 @@ import SwiftUI
 import AVKit
 import os
 
-private let logger = Logger(subsystem: "com.dispatcharr.DispatcharrTV", category: "Recordings")
+private let logger = Logger(subsystem: "com.pineapplestack.tv", category: "Recordings")
 
 struct RecordingPlayback: Identifiable {
     let id = UUID()

@@ -1,7 +1,7 @@
 import Foundation
 import os
 
-private let logger = Logger(subsystem: "com.dispatcharr.DispatcharrTV", category: "GuideVM")
+private let logger = Logger(subsystem: "com.pineapplestack.tv", category: "GuideVM")
 
 @MainActor
 final class GuideViewModel: ObservableObject {
@@ -44,8 +44,8 @@ final class GuideViewModel: ObservableObject {
 
         do {
             // Fetch EPG data mappings and grid in parallel
-            async let epgDataTask = DispatcharrAPI.getEPGDataMappings()
-            async let gridTask = DispatcharrAPI.getEPGGrid()
+            async let epgDataTask = PineappleStackAPI.getEPGDataMappings()
+            async let gridTask = PineappleStackAPI.getEPGGrid()
 
             let (epgDataEntries, response) = try await (epgDataTask, gridTask)
 

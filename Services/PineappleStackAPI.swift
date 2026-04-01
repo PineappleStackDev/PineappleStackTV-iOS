@@ -1,7 +1,7 @@
 import Foundation
 
-/// Typed wrapper around APIClient for all Dispatcharr endpoints
-enum DispatcharrAPI {
+/// Typed wrapper around APIClient for all PineappleStack endpoints
+enum PineappleStackAPI {
 
     // MARK: - Channels
 

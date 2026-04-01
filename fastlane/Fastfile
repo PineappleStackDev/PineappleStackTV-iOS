@@ -14,6 +14,6 @@ platform :ios do
   desc "Create tvOS provisioning profile"
   lane :tvos_signing do
     cert(api_key: @api_key, platform: "tvos")
-    sigh(api_key: @api_key, app_identifier: "com.dispatcharr.DispatcharrTV", platform: "tvos")
+    sigh(api_key: @api_key, app_identifier: "com.pineapplestack.tv", platform: "tvos")
   end
 end

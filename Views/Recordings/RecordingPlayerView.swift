@@ -2,7 +2,7 @@ import SwiftUI
 import AVKit
 import os
 
-private let logger = Logger(subsystem: "com.dispatcharr.DispatcharrTV", category: "RecPlayer")
+private let logger = Logger(subsystem: "com.pineapplestack.tv", category: "RecPlayer")
 
 struct RecordingPlayerView: View {
     let hlsURL: URL

@@ -25,8 +25,8 @@ final class RecordingsViewModel: ObservableObject {
         errorMessage = nil
 
         do {
-            async let recordingsTask = DispatcharrAPI.getRecordings()
-            async let rulesTask = DispatcharrAPI.getRecurringRules()
+            async let recordingsTask = PineappleStackAPI.getRecordings()
+            async let rulesTask = PineappleStackAPI.getRecurringRules()
 
             let (fetchedRecordings, fetchedRules) = try await (recordingsTask, rulesTask)
             recordings = fetchedRecordings
@@ -45,7 +45,7 @@ final class RecordingsViewModel: ObservableObject {
         program: RecordingProgram? = nil
     ) async {
         do {
-            let newRecording = try await DispatcharrAPI.createRecording(
+            let newRecording = try await PineappleStackAPI.createRecording(
                 channelId: channelId,
                 startTime: startTime,
                 endTime: endTime,
@@ -59,7 +59,7 @@ final class RecordingsViewModel: ObservableObject {
 
     func stopRecording(_ recording: Recording) async {
         do {
-            try await DispatcharrAPI.stopRecording(id: recording.id)
+            try await PineappleStackAPI.stopRecording(id: recording.id)
             // Wait for server to finish processing the stop
             try? await Task.sleep(for: .seconds(2))
             await loadAll()
@@ -70,7 +70,7 @@ final class RecordingsViewModel: ObservableObject {
 
     func deleteRecording(_ recording: Recording) async {
         do {
-            try await DispatcharrAPI.deleteRecording(id: recording.id)
+            try await PineappleStackAPI.deleteRecording(id: recording.id)
             recordings.removeAll { $0.id == recording.id }
         } catch {
             errorMessage = error.localizedDescription
@@ -89,7 +89,7 @@ final class RecordingsViewModel: ObservableObject {
         let endTimeStr = DateFormatters.timeOnly24h.string(from: end)
 
         do {
-            let rule = try await DispatcharrAPI.createRecurringRule(
+            let rule = try await PineappleStackAPI.createRecurringRule(
                 channelId: channelId,
                 name: name,
                 daysOfWeek: [dayOfWeek],
@@ -104,7 +104,7 @@ final class RecordingsViewModel: ObservableObject {
 
     func deleteRule(_ rule: RecurringRule) async {
         do {
-            try await DispatcharrAPI.deleteRecurringRule(id: rule.id)
+            try await PineappleStackAPI.deleteRecurringRule(id: rule.id)
             recurringRules.removeAll { $0.id == rule.id }
         } catch {
             errorMessage = error.localizedDescription
@@ -113,7 +113,7 @@ final class RecordingsViewModel: ObservableObject {
 
     func extendRecording(_ recording: Recording, minutes: Int) async {
         do {
-            try await DispatcharrAPI.extendRecording(id: recording.id, minutes: minutes)
+            try await PineappleStackAPI.extendRecording(id: recording.id, minutes: minutes)
             await loadAll()
         } catch {
             errorMessage = error.localizedDescription

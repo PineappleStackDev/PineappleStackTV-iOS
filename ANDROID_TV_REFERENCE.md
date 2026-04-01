@@ -1,4 +1,4 @@
-# DispatcharrTV: Complete Reference for Android TV Port
+# PineappleStackTV: Complete Reference for Android TV Port
 
 Extracted from all 28 Swift source files in the iOS/tvOS app.
 
@@ -259,7 +259,7 @@ access: String (JWT)
 ## 4. UI SCREENS AND NAVIGATION
 
 ### App Structure
-Root: `DispatcharrTVApp`
+Root: `PineappleStackTVApp`
 - If NOT authenticated: show **LoginView**
 - If authenticated: show **TabView** with 4 tabs:
 
@@ -376,7 +376,7 @@ guideHoursBehind = 1
 guideSlotMinutes = 30
 cacheTTL = 300 seconds (5 minutes, for channels and guide data)
 
-Keychain service identifier: "com.dispatcharrtv"
+Keychain service identifier: "com.pineapplestacktv"
 Keychain keys: "serverURL", "accessToken", "refreshToken", "username"
 
 UserDefaults keys:
